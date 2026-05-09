@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <button id="theme-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+        <path d="M480-320q-66.85 0-113.42-46.58Q320-413.15 320-480t46.58-113.42Q413.15-640 480-640t113.42 46.58Q640-546.85 640-480t-46.58 113.42Q546.85-320 480-320ZM200-460H60v-40h140v40Zm700 0H760v-40h140v40ZM460-760v-140h40v140h-40Zm0 700v-140h40v140h-40ZM269.85-663.85l-86.39-83.92 27.77-29.77 84.46 85.39-25.84 28.3Zm478.92 481.39-84.69-85.62 26.07-28.07 86.39 83.92-27.77 29.77Zm-84.92-507.69 83.92-86.39 29.77 27.77-85.39 84.46-28.3-25.84ZM182.46-211.23l85.62-84.69 26.54 26.07-83.16 87.16-29-28.54Z"/>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+        <path d="M482.31-160q-133.34 0-226.67-93.33-93.33-93.34-93.33-226.67 0-121.54 79.23-210.77t196.15-105.38q3.23 0 6.35.23 3.11.23 6.11.69-20.23 28.23-32.03 62.81-11.81 34.57-11.81 72.42 0 106.67 74.66 181.33Q555.64-404 662.31-404q38.07 0 72.54-11.81 34.46-11.81 61.92-32.04.46 3 .69 6.12.23 3.11.23 6.35-15.38 116.92-104.61 196.15T482.31-160Z"/>
+      </svg>
+    </button>
+
+    <div id="float-wrapper">
+      <div class="outer" id="id1">
+        <div class="inner"></div>
+      </div>
+
+      <div class="outer" id="id2">
+        <div class="inner"></div>
+      </div>
+    </div>
+
+    <div id="content">
+      <div id="header">
+        <h1>
+          Welcome to the <br />
+          Custom Quiz!
+        </h1>
+
+        <p>Enter the questions to get started</p>
+      </div>
+
+      <div id="form">
+        <form id="quiz-form">
+          <label for="question">Question:</label>
+          <input type="text" id="question" required />
+
+          <label for="option1">Option 1:</label>
+          <input type="text" id="option1" required />
+
+          <label for="option2">Option 2:</label>
+          <input type="text" id="option2" required />
+
+          <label for="option3">Option 3:</label>
+          <input type="text" id="option3" required />
+
+          <label for="option4">Option 4:</label>
+          <input type="text" id="option4" required />
+
+          <label for="correct">Correct:</label>
+          <input
+            type="text"
+            id="correct"
+            placeholder="Correct option (1/2/3/4)"
+            required
+          />
+
+          <button id="add" type="button">Add Question</button>
+
+          <button id="quiz" type="button">Start the quiz!</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="quiz-container">
+      <h2>Quiz</h2>
+
+      <h1 id="q">question</h1>
+
+      <button id="op1">op1</button>
+      <button id="op2">op2</button>
+      <button id="op3">op3</button>
+      <button id="op4">op4</button>
+
+      <div id="form-buttons">
+        <button id="submit-quiz">Next</button>
+
+        <button id="end" style="display: none">
+          Submit the quiz
+        </button>
+      </div>
+    </div>
+
+    <div id="result-container">
+      <h1 id="result"></h1>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
