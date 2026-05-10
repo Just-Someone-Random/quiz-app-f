@@ -32,6 +32,4 @@ app.delete('/api/questions', async (req, res) => {
   res.json({ message: 'Cleared!' });
 });
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+module.exports = app;
