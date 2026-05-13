@@ -9,27 +9,42 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('✅ MongoDB connected!'))
-  .catch(err => console.log('❌ Full error:', err.message));
-  
-// Get all questions
+// Connect inside each request instead of at startup
+async function connectDB() {
+  if (mongoose.connection.readyState === 0) {
+    await mongoose.connect(process.env.MONGO_URI);
+  }
+}
+
 app.get('/api/questions', async (req, res) => {
-  const questions = await Quiz.find();
-  res.json(questions);
+  try {
+    await connectDB();
+    const questions = await Quiz.find();
+    res.json(questions);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
-// Save a new question
 app.post('/api/questions', async (req, res) => {
-  const question = new Quiz(req.body);
-  await question.save();
-  res.json(question);
+  try {
+    await connectDB();
+    const question = new Quiz(req.body);
+    await question.save();
+    res.json(question);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
-// Delete all questions (reset)
 app.delete('/api/questions', async (req, res) => {
-  await Quiz.deleteMany();
-  res.json({ message: 'Cleared!' });
+  try {
+    await connectDB();
+    await Quiz.deleteMany();
+    res.json({ message: 'Cleared!' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 module.exports = app;
