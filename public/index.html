@@ -59,13 +59,14 @@
           <label for="option4">Option 4:</label>
           <input type="text" id="option4" required />
 
-          <label for="correct">Correct:</label>
-          <input
-            type="text"
-            id="correct"
-            placeholder="Correct option (1/2/3/4)"
-            required
-          />
+         <label for="correct">Correct:</label>
+<select id="correct" required>
+  <option value="">Select correct option</option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+  <option value="4">Option 4</option>
+</select>
 
           <button id="add" type="button">Add Question</button>
 
