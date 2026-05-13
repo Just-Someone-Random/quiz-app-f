@@ -96,11 +96,9 @@ function loadQuestion() {
 }
 
 next.addEventListener("click", function () {
-  const correctIndex = form[i].correct;
-  const correctBtn = document.getElementById("op" + correctIndex);
-
-  correctBtn.classList.add("correct");
-
+  const correctIndex = String(form[i].correct).trim();
+const correctBtn = document.getElementById("op" + correctIndex);
+if (correctBtn) correctBtn.classList.add("correct");
   options.forEach((btn) => {
     if (
       btn.classList.contains("selected") &&
